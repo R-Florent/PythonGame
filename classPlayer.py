@@ -26,3 +26,21 @@ class Player:
     def deal_damage(self, target_player):
         target_player.take_damage(self.attack)
         print(self.pseudo, "inflige", self.attack, "points de dégâts à", target_player.pseudo)
+
+    def attack_player(self, target_player):
+        damage = self.attack
+
+        # si le joueur a une arme
+        if self.has_weapon():
+            # ajoute les dégats de l'arme au point d'attaque du joueur
+            damage += self.weapon.get_damage_amount()
+
+        target_player.damage(damage)
+
+    # méthode pour changer l'arme du joueur
+    def set_weapon(self, weapon):
+        self.weapon = weapon
+
+    # méthode pour verifier si le joueur a une arme
+    def has_weapon(self):
+        return self.weapon is not None
