@@ -1,17 +1,8 @@
-from classPlayer import Player
-from classWeapon import Weapon
-from classMostre import mostre
+from tkinter import *
 
-knife = Weapon ("Couteau",3)
-def main():
-    print("hello wrold")
+window = Tk()
 
-    player1 = Player("Joueur 1", 100, 20)
-    player2 = Player("Joueur 2", 120, 15)
+window.title("My Appliocation")
 
-    # Exemple d'attaque
-    player1.deal_damage(player2)
-
-
-if __name__ == '__main__':
-    main()
+window.mainloop()
+window.geometry("1080x720")

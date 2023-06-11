@@ -23,43 +23,46 @@ class Entity:
             print("La valeur d'attaque doit être supérieure ou égale à zéro.")
 
     def take_damage(self, damage):
-        self.health -= damage
-        print(self.pseudo, "a subi", damage, "points de dégâts.")
-        if self.health <= 0:
-            print(self.pseudo, "a été vaincu !")
+        self._health -= damage
+        print(self.name, "a subi", damage, "points de dégâts.")
+        if self._health <= 0:
+            print(self.name, "a été vaincu !")
 
-    def deal_damage(self, target_player):
-        target_player.take_damage(self.attack)
-        print(self.pseudo, "inflige", self.attack, "points de dégâts à", target_player.pseudo)
+    def deal_damage(self, target_entity):
+        target_entity.take_damage(self._attack)
+        print(self.name, "inflige", self._attack, "points de dégâts à", target_entity.name)
 
-    def attack_player(self, target_player):
-        damage = self.attack
+    def attack_entity(self, target_entity):
+        damage = self._attack
 
-        # si le joueur a une arme
+        # si l'entité a une arme
         if self.has_weapon():
-            # ajoute les dégats de l'arme au point d'attaque du joueur
+            # ajoute les dégâts de l'arme au point d'attaque de l'entité
             damage += self.weapon.get_damage_amount()
 
-        target_player.damage(damage)
+        target_entity.take_damage(damage)
 
 
-class Player (Entity):
-
+class Player(Entity):
     def __init__(self, pseudo, health, attack, name):
         super().__init__(name, health, attack)
+        self.pseudo = pseudo
         self.weapon = None
-        print ("Bienvenue au joueur ", pseudo,"Point de vie",health,"Attack", attack)
-
+        print("Bienvenue au joueur", pseudo, "Point de vie", health, "Attack", attack)
 
     # méthode pour changer l'arme du joueur
     def set_weapon(self, weapon):
         self.weapon = weapon
 
-    # méthode pour verifier si le joueur a une arme
+    # méthode pour vérifier si le joueur a une arme
     def has_weapon(self):
         return self.weapon is not None
 
+
+"""
 class Magicienn (Player, Entity) :
 
 class gerrie (Player, Entity) :
 class monstre (Entity):
+
+"""
