@@ -2,11 +2,30 @@ from tkinter import *
 
 window = Tk()
 
-window.title("My Appliocation")
+# Configuration de la fenêtre
+window.title("Menu du jeu")
+window.minsize(480,360)
+window.geometry("1080x720")
+window.iconbitmap()
+#window.config(background='')
+
+#création des frames
+frame = Frame(window)
+
+# Création des widgets
+title_label = Label(frame, text="Bienvenu Joeur", font=("Helvetica", 24, "bold"))
+play_button = Button(frame, text="Jouer", )
+"""command=play_gam"""
+
+# Placement des widgets dans la fenêtre
+title_label.pack()
+play_button.pack()
+
+#ajouter
+frame.pack(expand=YES)
+
 
 window.mainloop()
-window.geometry("1080x720")
-
 """
 from classPlayer import Player
 
