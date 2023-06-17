@@ -10,12 +10,33 @@ window.iconbitmap()
 #window.config(background='')
 
 #création des frames
-frame = Frame(window)
+frame = Frame(window,)
 
 # Création des widgets
 title_label = Label(frame, text="Bienvenu Joeur", font=("Helvetica", 24, "bold"))
 play_button = Button(frame, text="Jouer", )
 """command=play_gam"""
+# Fonction appelée lors du clic sur le bouton 1
+def action_bouton1():
+    print("Bouton 1 cliqué")
+
+# Fonction appelée lors du clic sur le bouton 2
+def action_bouton2():
+    print("Bouton 2 cliqué")
+
+# Fonction appelée lors du clic sur le bouton 3
+def action_bouton3():
+    print("Bouton 3 cliqué")
+
+# Création des boutons
+bouton1 = Button(frame, text="Bouton 1", width=40, height=60, command=action_bouton1)
+bouton2 = Button(frame, text="Bouton 2", width=40, height=60, command=action_bouton2)
+bouton3 = Button(frame, text="Bouton 3", width=40, height=60, command=action_bouton3)
+
+# Placement des boutons au centre de la fenêtre
+bouton1.place(relx=0.5, rely=0.5, anchor=CENTER)
+bouton2.place(relx=0.5, rely=0.5, anchor=CENTER, y=80)
+bouton3.place(relx=0.5, rely=0.5, anchor=CENTER, y=160)
 
 # Placement des widgets dans la fenêtre
 title_label.pack()
